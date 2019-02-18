@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+body{
+    overflow-x: hidden;
+    font-family: 'Lato', sans-serif;
+    color: white;
+    background-color: white;
+}
+.offset{
+    padding: 5rem 0;
+}
+
+
+/*================Navigation ================*/
+
+.navbar{
+    padding: .7rem 1.5rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    transition: background-color 0.5s ease 0s;
+
+}
+
+.svg-inline--fa{
+    color: white;
+    font-size: 1.6rem;
+
+}
+
+.navbar-nav li{
+    font-size: 1rem;
+    padding-left: 0.8rem;
+
+}
+
+.nav-link,
+.navbar-brand{
+    color: white;
+}
+
+.navbar.solid{
+    background-color: White;
+    opacity: 1;
+    transition: background-color 0.5s ease 0s;
+}
+
+.solid svg{
+    color: black;
+}
+.navbar.solid a{
+    color: black;
+}
+.navbar.solid .navbar-brand{
+    color: #1ebba3;
+    border-top: 0;
+    border-bottom: 0;
+}
+.solid{
+    box-shadow: 0px -5px 50px #000000;
+}
+.nav-link.active,
+.nav-link:hover,
+.navbar-brand:hover{
+    color: #1ebba3;
+}
+
+.navbar-collapse{
+    transition: 0.5s
+}
+
+.navbar-brand{
+    font-size: 1.5rem;
+    transition: 0.5s;
+}
+.shortName{
+    font-size: 1.1rem;
+    transition: 0.5s;
+}
+
+/** Caption on image*/
+
+.caption {
+    width: 100%;
+    position: absolute;
+    top: 30%;
+    z-index: 1;
+}  
+
+.caption h1 {
+    font-size: 2.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem
+}
+ .caption h3 {
+    text-transform: uppercase;
+} 
+
+
+.contactMeButton {
+    animation-delay: 0.4s;
+    margin-top: 20px;
+    padding: 49px;
+    color: #1ebba3;
+    /* background: #1ebba3; */
+}
+
+.btn-lg {
+    color: white;
+    background-color: #1ebba3;
+    border: 0px;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding: 10px
+}
+
+/* caption finished*/
+
+.down-arrow svg.svg-inline--fa{
+    color: white;
+}
+hr {
+    width: 90px;
+    border-width: 4px;
+    background-color: #1ebba3;
+}
+
+.arrow-div{
+    position: absolute;
+    top: 90%;
+    left:48%
+}
+
+/* about section*/
+.narrow {
+    margin-bottom: 50px;
+}
+
+
+.jumbotron{
+    border-radius: 0px;
+    margin: 0px;
+    padding-bottom: 20px;
+}
+h3.heading{
+    font-size: 2rem;
+    letter-spacing: 0.11rem;
+}
+#typed{
+    font-weight: 100;
+    font-size: 3rem;
+}
+.typed-cursor{
+    font-weight: 100;
+    font-size: 3rem;
+    height: 10px;
+    margin-bottom: 41px;
+}
+.line{
+    width: 50px;
+}
+#about{
+    color: gray;
+    padding-top: 20px;
+}
+/*skills section*/
+
+.fixed-background {
+    position: relative;
+    width: 100%;
+  } 
+
+.fa-html5,.fa-node,.fa-js,.fa-java,.fa-css3-alt,.fa-react,.fa-home,.fa-envelope,.fa-gg,.fa-phone,.fa-staylinked{
+    color: #1ebba3;
+    font-size: 40;
+}
+img{
+    width:100%;
+    z-index: -100;
+    position: absolute;
+}
+.text-center{
+    padding-top: 20px;
+}
+.skillSets{
+    padding-bottom: 65px
+}
+.skillHeading{
+    padding-bottom: 30px;
+}
+.darkLanding{
+    background: rgba(0 , 0, 0, 0.2);
+}
+.dark{
+    background: rgba(0 , 0, 0, 0.5);
+}
+canvas{
+    position: absolute;
+}
+
+/* Contact information*/
+
+
+#contact{
+    color: gray;
+    padding: 0 0;
+    margin: 0px 90px;
+}
+
+.eachInfo{
+    box-shadow: 10px 10px 50px #888;
+    padding: 20px 5px;
+    margin: 20px
+}
+h5{
+    font-size: 1.1rem;
+}
+.fa-twitter,.fa-facebook,.fa-linkedin-in{
+    color: #1ebba3;
+    font-size: 20;
+}
+.row a{
+    padding: 10px
+}
+
+.eachInfo:hover{
+width: 300px;
+transition:0.5s
+}
