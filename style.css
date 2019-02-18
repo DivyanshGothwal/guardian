@@ -223,8 +223,3 @@ h5{
 .row a{
     padding: 10px
 }
-
-.eachInfo:hover{
-width: 300px;
-transition:0.5s
-}
