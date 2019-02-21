@@ -7,7 +7,7 @@ body{
     background-color: white;
 }
 .offset{
-    padding: 5rem 0;
+    padding: 2rem 0;
 }
 
 
@@ -202,16 +202,21 @@ canvas{
 /* Contact information*/
 
 
-#contact{
+.contact{
     color: gray;
-    padding: 0 0;
-    margin: 0px 90px;
+    padding: 0 15px;
+    margin: 0px auto;
+    width:1100px;
 }
 
-.eachInfo{
-    box-shadow: 10px 10px 50px #888;
+.eachInfo,.contactDiv{
+    box-shadow: 0 20px 40px rgba(0,0,0,.2);
     padding: 20px 5px;
     margin: 20px
+}
+.fa-home,.fa-envelope,.fa-gg,.fa-phone,.fa-staylinked{
+    color: #1ebba3;
+    font-size: 25;
 }
 h5{
     font-size: 1.1rem;
@@ -222,4 +227,35 @@ h5{
 }
 .row a{
     padding: 10px
+}
+
+h2{
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.colInfo{
+ padding:0 0;
+ width:25%;
+}
+.contactDiv{
+    width: 900px;
+    height:400px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 50px
+}
+.input {
+    width: 100%;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    font-size: 15px;
+}
+.inputDiv{
+    margin:20 0;
+}
+input:focus {outline: none; }
+.error{
+    border-color:red;
 }

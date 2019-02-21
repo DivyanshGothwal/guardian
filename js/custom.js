@@ -1,14 +1,14 @@
 /* Navbar transparent to solid and vice versa */
-$(document).ready(()=>{
-    $(window).scroll(function (){
-        if($(this).scrollTop()>200){
-            $(".navbar").addClass('solid');
-        }
-        else{
-            $(".navbar").removeClass('solid');
-        }
-            $(".bounce").css("opacity",1-($(window).scrollTop())/250);
-    });
+$(document).ready(() => {
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 200) {
+      $(".navbar").addClass('solid');
+    }
+    else {
+      $(".navbar").removeClass('solid');
+    }
+    $(".bounce").css("opacity", 1 - ($(window).scrollTop()) / 250);
+  });
 });
 /** add only for mobile version */
 // $(document).ready(()=>{
@@ -23,39 +23,96 @@ $(document).ready(()=>{
 //     }
 // });
 /** close mobile version */
-$(document).ready(()=>{
-    $(document).click((e)=>{
-        let clickedElement=$(e.target);
-        let isNavBarOpened = $('.navbar-collapse').hasClass('show');
-        console.log(!clickedElement.hasClass('navbar-toggler'));
-        if(isNavBarOpened && !clickedElement.hasClass('navbar-toggler')){
-            
-            $('.navbar-toggler').click();
-        }
-        console.log(isNavBarOpened);
-        console.log(clickedElement);
-    });
+$(document).ready(() => {
+  $(document).click((e) => {
+    let clickedElement = $(e.target);
+    let isNavBarOpened = $('.navbar-collapse').hasClass('show');
+    console.log(!clickedElement.hasClass('navbar-toggler'));
+    if (isNavBarOpened && !clickedElement.hasClass('navbar-toggler')) {
+
+      $('.navbar-toggler').click();
+    }
+    console.log(isNavBarOpened);
+    console.log(clickedElement);
+  });
 })
 
 /**smooth scrolling to links */
-$(document).ready(()=>{
-    $('a').on('click', function (e){
-        if(this.hash!==''){
-            e.preventDefault();
-            var hash = this.hash;
-            $('html,body').animate(
-                {
-                    scrollTop : $(hash).offset().top-67
-                },
-                1000
-            )
+$(document).ready(() => {
+  $('a').on('click', function (e) {
+    if (this.hash !== '') {
+      e.preventDefault();
+      var hash = this.hash;
+      $('html,body').animate(
+        {
+          scrollTop: $(hash).offset().top - 67
+        },
+        1000
+      )
 
-        }
+    }
 
-    });
+  });
 });
+
+let OnChange = function (e) {
+  console.log(e);
+  if (e.srcElement.name === 'name') {
+    let errName = document.getElementById('errorMsgName');
+    if ((e.target.value === '' || e.target.value == null)) {
+      
+      errName.innerHTML = 'TypeCorrectName';
+    }
+    else {
+      errName.innerHTML = '';
+    }
+  }
+  else{
+    let errEmail = document.getElementById('errorMsgEmail');
+    let str = '@';
+    let comStr = '.com';
+    let indexOfStr =e.target.value.indexOf(str);
+    let indexOfComStr = e.target.value.indexOf(comStr);
+    console.log(indexOfStr);
+    console.log(indexOfComStr);
+    if ((e.target.value === '' || e.target.value == null)||indexOfStr==0 || indexOfStr>indexOfComStr || indexOfComStr-indexOfStr<=1) {
+      errEmail.innerHTML = 'TypeCorrectEmail';
+    }
+    else {
+      errEmail.innerHTML = '';
+    }
+  }
+}
+
+let inputsEle = document.getElementsByClassName('input');
+let inputEleArray = Array.of(...inputsEle);
+inputEleArray.forEach(eachEle => {
+  eachEle.addEventListener('keyup', OnChange);
+  eachEle.addEventListener('paste', OnChange);
+  eachEle.addEventListener('select', OnChange);
+  eachEle.addEventListener('change', OnChange);
+  eachEle.addEventListener('focusout', OnChange);
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 particlesJS('particles-js',
-  
+
   {
     "particles": {
       "number": {
@@ -178,10 +235,10 @@ particlesJS('particles-js',
 
 var typed = new Typed('#typed', {
   stringsElement: '#typed-strings',
-  typeSpeed:40,
+  typeSpeed: 40,
   smartBackspace: true,
-  backSpeed:40,
+  backSpeed: 40,
   loopCount: Infinity,
-  loop:true,
+  loop: true,
   cursorChar: '|'
 });
