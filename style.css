@@ -253,7 +253,8 @@ input{
     border-left: none;
 }
 .inputDiv{
-    margin:20 0;
+    margin: 0 0;
+    margin-top:20;
 }
 input:focus {outline: none; }
 .errorDiv{
@@ -263,12 +264,36 @@ input:focus {outline: none; }
     box-shadow: 0 0 6px #a94442;
     transition: all 100ms ease-out;
 }
-#textBody{
-    border-top: 1px;
-    border-right: none;
-    border-left: none;
+.commonError{
+margin: 10px;
+}
+.input{
+    font-size: 15px;
+    margin-top:18px;
+    width: 100%;
+    border-color: gray;
+    border-width: 2px;
 }
 #texBody:focus{
-    
-outline: none;
+    outline: none;
+}
+
+.sendMsgButton {
+    border-radius: 5px;
+    background-color: #1ebba3;
+    color: white;
+    height: 55px;
+    width: 152px;
+    margin: 19px;
+    margin-left: 0;
+}
+button:focus{
+    outline:none
+}
+button:hover{
+    cursor: pointer;
+}
+.contactForm{
+    padding: 5%;
+    padding-bottom: 0px;
 }

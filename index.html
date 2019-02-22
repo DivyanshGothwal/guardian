@@ -289,19 +289,19 @@
                             <div class="contactForm">
                                 <div class="row">
                                     <div class="col-md-6 inputDiv">
-                                        <input class="input"type="text" placeholder="Enter your full name." name="name">
-                                        <div id="errorMsgName" class="errorDiv"></div>
+                                        <input class="input"type="text" placeholder="Enter your full name *" name="name">
+                                        <div id="errorMsgName"  class="errorDiv commonError"></div>
                                     </div>
                                     <div class="col-md-6 inputDiv">
-                                        <input class="input" type="text" placeholder="Enter your mail id." name="email">
-                                        <div id="errorMsgEmail" class="errorDiv"></div>
+                                        <input class="input" type="text" placeholder="Enter your mail id *" name="email">
+                                        <div id="errorMsgEmail" class="errorDiv commonError"></div>
                                     </div>
 
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
-                                        <textarea class="input" id="texBody" rows="13" cols="100" name='bodyMsg'></textarea>
-                                        <div id="errorMsgBodyText" class="errorDiv"></div>
+                                        <textarea class="input" id="texBody" rows="13" name='bodyMsg' placeholder="Your Message *"></textarea>
+                                        <div id="errorMsgBodyText" class="errorDiv commonError"></div>
                                     </div>
                                     <div class="col-12">
                                         <button class="sendMsgButton">Send Message</button>
@@ -344,7 +344,9 @@
             </b></fa-github-squaregdf>
     </h1>
     <!-- end Contact section -->
-
+    <div class="footer">
+            &copy;
+    </div>
     <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js"></script>
     <script src="./js/jquery-3.3.1.min.js"></script>
     <script src="./Bootstarp/js/bootstrap.min.js"></script>
