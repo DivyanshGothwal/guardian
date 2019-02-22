@@ -55,33 +55,89 @@ $(document).ready(() => {
   });
 });
 
+let validateEmail = function (e) {
+  let errEmail = document.getElementById('errorMsgEmail');
+  let str = '@';
+  let comStr = '.com';
+  let indexOfStr = e.target.value.indexOf(str);
+  let indexOfComStr = e.target.value.indexOf(comStr);
+  return ((e.target.value === '' ||
+    e.target.value == null) ||
+    indexOfStr == 0 ||
+    indexOfStr > indexOfComStr ||
+    indexOfComStr - indexOfStr <= 1);
+}
+
+let validateValue = function (e) {
+  return (e.target.value === '' || e.target.value == null);
+}
+
 let OnChange = function (e) {
   console.log(e);
   if (e.srcElement.name === 'name') {
     let errName = document.getElementById('errorMsgName');
-    if ((e.target.value === '' || e.target.value == null)) {
-      
-      errName.innerHTML = 'TypeCorrectName';
+    if (validateValue(e)) {
+      errName.innerHTML = 'Fullname is required.';
     }
     else {
       errName.innerHTML = '';
     }
   }
-  else{
+  else if(e.srcElement.name === 'email'){
     let errEmail = document.getElementById('errorMsgEmail');
-    let str = '@';
-    let comStr = '.com';
-    let indexOfStr =e.target.value.indexOf(str);
-    let indexOfComStr = e.target.value.indexOf(comStr);
-    console.log(indexOfStr);
-    console.log(indexOfComStr);
-    if ((e.target.value === '' || e.target.value == null)||indexOfStr==0 || indexOfStr>indexOfComStr || indexOfComStr-indexOfStr<=1) {
-      errEmail.innerHTML = 'TypeCorrectEmail';
+    if (validateEmail(e)) {
+      errEmail.innerHTML = 'Valid email is required.';
     }
     else {
       errEmail.innerHTML = '';
     }
   }
+  else {
+    let errorMsgBodyText = document.getElementById('errorMsgBodyText');
+    if (validateValue(e)) {
+      errorMsgBodyText.innerHTML = 'Leave a message for me';
+    }
+    else {
+      errorMsgBodyText.innerHTML = '';
+    }
+  }
+}
+
+function showError(e) {
+  if (e.srcElement.name === 'name') {
+    if (validateValue(e)) {
+      e.srcElement.classList.add('error');
+
+    }
+    else {
+      e.srcElement.classList.remove('error');
+
+    }
+  }
+  else if(e.srcElement.name === 'email'){
+    if (validateEmail(e)) {
+      e.srcElement.classList.add('error');
+
+    }
+    else {
+      e.srcElement.classList.remove('error');
+
+    }
+  }
+  else if(e.srcElement.name === 'bodyMsg'){
+    if(validateValue(e)){
+      e.srcElement.classList.add('error');
+    }
+    else {
+      e.srcElement.classList.remove('error');
+
+    }
+  }
+}
+
+function hideError(e) {
+  e.srcElement.classList.remove('error');
+  e.srcElement.classList.add('input');
 }
 
 let inputsEle = document.getElementsByClassName('input');
@@ -92,6 +148,12 @@ inputEleArray.forEach(eachEle => {
   eachEle.addEventListener('select', OnChange);
   eachEle.addEventListener('change', OnChange);
   eachEle.addEventListener('focusout', OnChange);
+  eachEle.addEventListener('focus', showError);
+  eachEle.addEventListener('paste', showError);
+  eachEle.addEventListener('select', showError);
+  eachEle.addEventListener('change', showError);
+  eachEle.addEventListener('keyup', showError);
+  eachEle.addEventListener('focusout', hideError);
 })
 
 

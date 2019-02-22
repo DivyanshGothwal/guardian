@@ -240,22 +240,35 @@ h2{
 }
 .contactDiv{
     width: 900px;
-    height:400px;
     margin-left:auto;
     margin-right:auto;
     margin-top: 50px
 }
-.input {
+
+input{
     width: 100%;
+    font-size: 15px;
     border-top: none;
     border-right: none;
     border-left: none;
-    font-size: 15px;
 }
 .inputDiv{
     margin:20 0;
 }
 input:focus {outline: none; }
+.errorDiv{
+    color: #a94442;
+}
 .error{
-    border-color:red;
+    box-shadow: 0 0 6px #a94442;
+    transition: all 100ms ease-out;
+}
+#textBody{
+    border-top: 1px;
+    border-right: none;
+    border-left: none;
+}
+#texBody:focus{
+    
+outline: none;
 }
