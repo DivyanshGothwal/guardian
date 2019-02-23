@@ -163,6 +163,10 @@ h3.heading{
 #about{
     color: gray;
     padding-top: 20px;
+
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
 }
 /*skills section*/
 
@@ -221,7 +225,7 @@ canvas{
 h5{
     font-size: 1.1rem;
 }
-.fa-twitter,.fa-facebook,.fa-linkedin-in{
+.fa-twitter,.fa-facebook,.fa-linkedin-in,.fa-github{
     color: #1ebba3;
     font-size: 20;
 }
@@ -296,4 +300,24 @@ button:hover{
 .contactForm{
     padding: 5%;
     padding-bottom: 0px;
+}
+
+/*  Contact form finished**/
+
+
+/*** Counter div ***/
+
+.counterValues {
+    background-color: #1ebba3;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 60 40;
+    padding-top: 40
+}
+.counter{
+    font-size: 2.5rem;
+}
+.counterLogo{
+    margin: 15px;
 }
