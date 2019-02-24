@@ -372,3 +372,30 @@ button:hover{
     cursor: pointer;
     transform: rotate(180deg);
 }
+
+
+
+
+/*============= start of media queries ========*/
+/* one at :1100px;
+
+
+devices under 1100px*/
+
+@media(max-width:1100px){
+    .contact{
+        width:900px;
+    }
+    .contactDiv {
+        width: 700px;
+    }
+}
+
+@media(max-width:992px){
+    .contact{
+        width:100%;
+    }
+    .contactDiv {
+        width: 100%;
+    }
+}
