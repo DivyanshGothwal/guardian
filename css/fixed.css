@@ -27,7 +27,6 @@ margin-right: 0px!important;
 }
 .home-inner {
   position: fixed; /* Change to relative to remove fixed style. */
-  display: table;
   top: 0;
   left: 0;
   width: 100%;
@@ -36,7 +35,7 @@ margin-right: 0px!important;
   background-position: center center;
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
-  will-change: transform;
+
 }
 
 /*--- iOS Fixed Background Image --*/

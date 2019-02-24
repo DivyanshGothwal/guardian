@@ -397,7 +397,6 @@ devices under 1100px*/
     }
     .contactDiv {
         width: 100%;
-        height:300px;
     }
     .caption h3{
         font-size: 1.5rem;
@@ -422,5 +421,16 @@ devices under 1100px*/
     }
     .arrow-div{
         display: none;
+    }
+    #sendMsgButton {
+        height: 46px;
+        width: 104px;
+        font-size: 0.8rem;
+    }
+}
+@media(min-width:992px){
+    .landing img{
+        height: 1050;
+
     }
 }
