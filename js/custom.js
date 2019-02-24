@@ -164,13 +164,11 @@ jQuery(document).ready(function ($) {
   });
 });
 
-function sendMessangeToRecipient(msgName, emailSendTo, emailBody) {
+function sendMessangeToRecipient(msgName, emailSentFrom, emailBody) {
   Email.send({
-    Host: "smtp25.elasticemail.com",
-    Username: "shotsdivyansh@gmail.com",
-    Password: "divyansh",
+    SecureToken : "C973D7AD-F097-4B95-91F4-40ABC5567812",
     To: 'shotsdivyansh@gmail.com',
-    From: 'shotsdivyansh@gmail.com',
+    From: emailSentFrom,
     Subject: msgName + " Wants to contact you",
     Body: emailBody
   }).then(
@@ -184,20 +182,6 @@ function sendMessangeToRecipient(msgName, emailSendTo, emailBody) {
       // }
     }
   );
-
-
-  // Email.send(emailSendTo,
-  //   'shotsdivyansh@gmail.com',
-  //   msgName + " Wants to contact you",
-  //   emailBody,
-  //   { token: "6dae7a4f-2b8e-4a41-895f-ac3ab5290cf4" }
-  // ).then(
-  //   message => {
-  //     if (message === 'ok') {
-  //     }
-  //     alert(message);
-  //   }
-  // );
 }
 var sendMsgButton = document.getElementById('sendMsgButton');
 
@@ -217,11 +201,11 @@ function sendMessange(e) {
   });
   if (sendTrue) {
     let msgName = null;
-    let emailSendTo = null;
+    let emailSentFrom = null;
     let emailBody = null;
     inputEleArray.forEach(eachEle => {
       if (eachEle.name === 'email') {
-        emailSendTo = eachEle.value;
+        emailSentFrom = eachEle.value;
       }
       else if (eachEle.name === 'name') {
         msgName = eachEle.value;
@@ -230,7 +214,7 @@ function sendMessange(e) {
         emailBody = eachEle.value;
       }
     });
-    sendMessangeToRecipient(msgName, emailSendTo, emailBody)
+    sendMessangeToRecipient(msgName, emailSentFrom, emailBody)
   }
 }
 
