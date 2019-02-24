@@ -291,7 +291,7 @@ margin: 10px;
     outline: none;
 }
 
-.sendMsgButton {
+#sendMsgButton {
     border-radius: 5px;
     background-color: #1ebba3;
     color: white;
@@ -299,6 +299,11 @@ margin: 10px;
     width: 152px;
     margin: 19px;
     margin-left: 0;
+}
+#sendMsgButton:hover{
+    box-shadow: 0 20px 40px rgba(0,0,0,.2);
+    font-size: 1.3rem;
+    transition: all 0.5s;
 }
 button:focus{
     outline:none
@@ -337,4 +342,21 @@ button:hover{
     color: white;
     padding: 52px;
     font-size: 1.16rem;
+}
+
+/******Alert msg box*****/
+
+
+.alertMsg{
+    transition: all 500ms;
+    display: none;
+}
+.closeMsg {
+    float: right;
+    transition: all 500ms;
+    font-size: 1.2rem;
+}
+.closeMsg:hover{
+    cursor: pointer;
+    transform: rotate(180deg);
 }

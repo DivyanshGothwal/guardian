@@ -27,13 +27,13 @@ $(document).ready(() => {
   $(document).click((e) => {
     let clickedElement = $(e.target);
     let isNavBarOpened = $('.navbar-collapse').hasClass('show');
-    console.log(!clickedElement.hasClass('navbar-toggler'));
+    //console.log(!clickedElement.hasClass('navbar-toggler'));
     if (isNavBarOpened && !clickedElement.hasClass('navbar-toggler')) {
 
       $('.navbar-toggler').click();
     }
-    console.log(isNavBarOpened);
-    console.log(clickedElement);
+    //console.log(isNavBarOpened);
+    //console.log(clickedElement);
   });
 })
 
@@ -56,36 +56,39 @@ $(document).ready(() => {
 });
 
 let validateEmail = function (e) {
-  let errEmail = document.getElementById('errorMsgEmail');
   let str = '@';
   let comStr = '.com';
-  let indexOfStr = e.target.value.indexOf(str);
-  let indexOfComStr = e.target.value.indexOf(comStr);
-  return ((e.target.value === '' ||
-    e.target.value == null) ||
-    indexOfStr == 0 ||
-    indexOfStr > indexOfComStr ||
-    indexOfComStr - indexOfStr <= 1);
+  let indexOfStr = 0;
+  let indexOfComStr = 0;
+  if (typeof e.value !== 'undefined') {
+    indexOfStr = e.value.indexOf(str);
+    indexOfComStr = e.value.indexOf(comStr);
+  }
+  return ((e.value !== '' &&
+    e.value !== null) &&
+    indexOfStr !== 0 &&
+    indexOfStr < indexOfComStr &&
+    indexOfComStr - indexOfStr > 1);
 }
 
 let validateValue = function (e) {
-  return (e.target.value === '' || e.target.value == null);
+  return (e.value === '' || e.value == null);
 }
 
 let OnChange = function (e) {
   console.log(e);
   if (e.srcElement.name === 'name') {
     let errName = document.getElementById('errorMsgName');
-    if (validateValue(e)) {
+    if (validateValue(e.srcElement)) {
       errName.innerHTML = 'Fullname is required.';
     }
     else {
       errName.innerHTML = '';
     }
   }
-  else if(e.srcElement.name === 'email'){
+  else if (e.srcElement.name === 'email') {
     let errEmail = document.getElementById('errorMsgEmail');
-    if (validateEmail(e)) {
+    if (!validateEmail(e.srcElement)) {
       errEmail.innerHTML = 'Valid email is required.';
     }
     else {
@@ -94,18 +97,19 @@ let OnChange = function (e) {
   }
   else {
     let errorMsgBodyText = document.getElementById('errorMsgBodyText');
-    if (validateValue(e)) {
+    if (validateValue(e.srcElement)) {
       errorMsgBodyText.innerHTML = 'Leave a message for me';
     }
     else {
       errorMsgBodyText.innerHTML = '';
     }
   }
+  showError(e);
 }
 
 function showError(e) {
   if (e.srcElement.name === 'name') {
-    if (validateValue(e)) {
+    if (validateValue(e.srcElement)) {
       e.srcElement.classList.add('error');
 
     }
@@ -114,8 +118,8 @@ function showError(e) {
 
     }
   }
-  else if(e.srcElement.name === 'email'){
-    if (validateEmail(e)) {
+  else if (e.srcElement.name === 'email') {
+    if (!validateEmail(e.srcElement)) {
       e.srcElement.classList.add('error');
 
     }
@@ -124,8 +128,8 @@ function showError(e) {
 
     }
   }
-  else if(e.srcElement.name === 'bodyMsg'){
-    if(validateValue(e)){
+  else if (e.srcElement.name === 'bodyMsg') {
+    if (validateValue(e.srcElement)) {
       e.srcElement.classList.add('error');
     }
     else {
@@ -143,28 +147,92 @@ function hideError(e) {
 let inputsEle = document.getElementsByClassName('input');
 let inputEleArray = Array.of(...inputsEle);
 inputEleArray.forEach(eachEle => {
-  eachEle.addEventListener('keyup', OnChange);
+  eachEle.addEventListener('change', OnChange);
+  eachEle.addEventListener('focus', showError);
   eachEle.addEventListener('paste', OnChange);
   eachEle.addEventListener('select', OnChange);
-  eachEle.addEventListener('change', OnChange);
+  eachEle.addEventListener('keyup', OnChange);
   eachEle.addEventListener('focusout', OnChange);
-  eachEle.addEventListener('focus', showError);
-  eachEle.addEventListener('paste', showError);
-  eachEle.addEventListener('select', showError);
-  eachEle.addEventListener('change', showError);
-  eachEle.addEventListener('keyup', showError);
-  eachEle.addEventListener('focusout', hideError);
 })
 
 
 
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
   $('.counter').counterUp({
-      delay: 10,
-      time: 1000
+    delay: 10,
+    time: 1000
   });
 });
 
+function sendMessangeToRecipient(msgName, emailSendTo, emailBody) {
+  Email.send({
+    Host: "smtp25.elasticemail.com",
+    Username: "shotsdivyansh@gmail.com",
+    Password: "divyansh",
+    To: 'shotsdivyansh@gmail.com',
+    From: 'shotsdivyansh@gmail.com',
+    Subject: msgName + " Wants to contact you",
+    Body: emailBody
+  }).then(
+    message => {
+      document.getElementById('success').style.display = "block";
+      // if (message === 'ok') {
+        //successEle.style.display = "block";
+      // }
+      // else {
+      //   dangerEle.style.display = "block";
+      // }
+    }
+  );
+
+
+  // Email.send(emailSendTo,
+  //   'shotsdivyansh@gmail.com',
+  //   msgName + " Wants to contact you",
+  //   emailBody,
+  //   { token: "6dae7a4f-2b8e-4a41-895f-ac3ab5290cf4" }
+  // ).then(
+  //   message => {
+  //     if (message === 'ok') {
+  //     }
+  //     alert(message);
+  //   }
+  // );
+}
+var sendMsgButton = document.getElementById('sendMsgButton');
+
+sendMsgButton.addEventListener('click', sendMessange);
+
+
+function sendMessange(e) {
+  let inputsEle = document.getElementsByClassName('input');
+  let inputEleArray = Array.of(...inputsEle);
+  let sendTrue = 1;
+  inputEleArray.forEach(eachEle => {
+    console.log(eachEle);
+    if ((eachEle.name === 'email' && !validateEmail(eachEle)) || (validateValue(eachEle))) {
+      $(eachEle).select();
+      sendTrue = 0;
+    }
+  });
+  if (sendTrue) {
+    let msgName = null;
+    let emailSendTo = null;
+    let emailBody = null;
+    inputEleArray.forEach(eachEle => {
+      if (eachEle.name === 'email') {
+        emailSendTo = eachEle.value;
+      }
+      else if (eachEle.name === 'name') {
+        msgName = eachEle.value;
+      }
+      else {
+        emailBody = eachEle.value;
+      }
+    });
+    sendMessangeToRecipient(msgName, emailSendTo, emailBody)
+  }
+}
 
 
 
@@ -172,7 +240,16 @@ jQuery(document).ready(function($) {
 
 
 
+var closeMsgEle = document.getElementsByClassName('closeMsg');
 
+let closeMsgEleArray = Array.of(...closeMsgEle);
+closeMsgEleArray.forEach(eachEle => {
+  eachEle.addEventListener('click',onClickClose);
+});
+
+function onClickClose(e){
+  e.srcElement.parentElement.style.display = "none"
+}
 
 
 

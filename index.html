@@ -17,9 +17,9 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 
-<body data-spy="scroll" data-target='#navBar'>
+<body data-spy="scroll" data-target='#navBarId'>
     <!--Nav bar start here -->
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav id="navBarId" class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand os-animation" data-animation="bounceIn" href="#home">Divyansh</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarItems"
@@ -45,7 +45,7 @@
                             data-delay="0.2s">Contact</a>
                     </li>
                     <li class="nav-item">
-                            <a href="./Docs/resume(Divyansh).pdf" class="nav-link os-animation" data-animation="bounceIn"
+                        <a href="./Docs/resume(Divyansh).pdf" class="nav-link os-animation" data-animation="bounceIn"
                             data-delay="0.2s">CV</a>
                     </li>
                 </ul>
@@ -311,7 +311,7 @@
                                 <a href="https://twitter.com/DivyanshGothwal"><i class="fab fa-twitter"></i></a>
                                 <a href="https://www.linkedin.com/in/divyansh-gothwal-78822a115/"> <i
                                         class="fab fa-linkedin-in"></i></a>
-                                        <a href="https://github.com/DivyanshGothwal"><i class="fab fa-github"></i></a>
+                                <a href="https://github.com/DivyanshGothwal"><i class="fab fa-github"></i></a>
                             </p>
                         </div>
                     </div>
@@ -323,6 +323,16 @@
                         <div class="contactDiv">
                             <div class="contactForm">
                                 <div class="row">
+                                    <div class="col-12">
+                                        <div class="alert alert-success alertMsg" id="success"role="alert">
+                                            Your mail has been sent you will be contacted soon
+                                            <span class="closeMsg">✕</span>
+                                        </div>
+                                        <div class="alert alert-danger alertMsg" id="faliure" role="alert">
+                                                Unable to send your message please try after some time 
+                                                <span class="closeMsg">✕</span>
+                                            </div>
+                                    </div>
                                     <div class="col-md-6 inputDiv">
                                         <input class="input" type="text" placeholder="Enter your full name *"
                                             name="name">
@@ -342,7 +352,7 @@
                                         <div id="errorMsgBodyText" class="errorDiv commonError"></div>
                                     </div>
                                     <div class="col-12">
-                                        <button class="sendMsgButton">Send Message</button>
+                                        <button Id="sendMsgButton">Send Message</button>
                                     </div>
                                 </div>
                             </div>
@@ -354,10 +364,11 @@
     </div>
     <!-- end Contact section -->
     <div class="footer text-center">
-        &copy; All Right Reserved By <a href="https://github.com/DivyanshGothwal">Divyansh</a> 
+        &copy; All Right Reserved By <a href="https://github.com/DivyanshGothwal">Divyansh</a>
     </div>
     <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js"></script>
     <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="./Bootstarp/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
     <script src="./js/contact.js"></script>
