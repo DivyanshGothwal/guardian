@@ -430,10 +430,8 @@ devices under 1100px*/
     }
     .caption{
         top: 30%
-    }
-    .arrow-div{
-        display: none;
-    }
+     }
+
     #sendMsgButton {
         height: 46px;
         width: 104px;
