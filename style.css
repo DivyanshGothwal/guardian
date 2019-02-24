@@ -434,3 +434,8 @@ devices under 1100px*/
 
     }
 }
+@media(max-width:400px){
+    .landing img{
+        width: 550;
+    }
+}
