@@ -8,6 +8,7 @@ body{
 }
 .offset{
     padding: 2rem 0;
+    padding-bottom: 120px;
 }
 
 
@@ -212,11 +213,19 @@ canvas{
     margin: 0px auto;
     width:1100px;
 }
-
-.eachInfo,.contactDiv{
+.contactDiv{
     box-shadow: 0 20px 40px rgba(0,0,0,.2);
+}
+.eachInfo{
+    border: 0.5px solid  rgba(219, 219, 219, 0.459);
     padding: 20px 5px;
-    margin: 20px
+    margin: 20px;
+}
+
+.eachinfo:hover{
+    border:none;
+    box-shadow: 0 20px 40px rgba(0,0,0,.2);
+    transition: all 0.5s;
 }
 .fa-home,.fa-envelope,.fa-gg,.fa-phone,.fa-staylinked{
     color: #1ebba3;
@@ -320,4 +329,12 @@ button:hover{
 }
 .counterLogo{
     margin: 15px;
+}
+
+/***Footer Section****/
+.footer {
+    background-color: black;
+    color: white;
+    padding: 52px;
+    font-size: 1.16rem;
 }
