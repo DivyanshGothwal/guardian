@@ -7,7 +7,7 @@ $(document).ready(() => {
     else {
       $(".navbar").removeClass('solid');
     }
-    $(".bounce").css("opacity", 1 - ($(window).scrollTop()) / 250);
+    $(".bounce").css("opacity", 0.7 - ($(window).scrollTop()) / 250);
   });
 });
 /** add only for mobile version */
