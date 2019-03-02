@@ -76,7 +76,6 @@ let validateValue = function (e) {
 }
 
 let OnChange = function (e) {
-  console.log(e);
   if (e.srcElement.name === 'name') {
     let errName = document.getElementById('errorMsgName');
     if (validateValue(e.srcElement)) {
@@ -193,7 +192,6 @@ function sendMessange(e) {
   let inputEleArray = Array.of(...inputsEle);
   let sendTrue = 1;
   inputEleArray.forEach(eachEle => {
-    console.log(eachEle);
     if ((eachEle.name === 'email' && !validateEmail(eachEle)) || (validateValue(eachEle))) {
       $(eachEle).select();
       sendTrue = 0;
