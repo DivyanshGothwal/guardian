@@ -234,6 +234,14 @@ function onClickClose(e){
 }
 
 
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
 
 
 
@@ -241,7 +249,10 @@ function onClickClose(e){
 document.onreadystatechange = function () {
   var state = document.readyState
   if (state == 'complete') {
-         document.getElementById('loadingIcon').style.display="none";
+      document.getElementById('loadingIcon').style.display="none";
+  }
+  else{
+    sleep(1000);
   }
 }
 
@@ -376,5 +387,5 @@ var typed = new Typed('#typed', {
   loopCount: Infinity,
   loop: true,
   cursorChar: '|',
-  backDelay:700
+  backDelay: 700
 });
