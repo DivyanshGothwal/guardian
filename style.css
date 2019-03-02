@@ -12,6 +12,19 @@ body{
 }
 
  
+/*================loading image ================*/
+
+#loadingIcon{
+    position: fixed;
+     height: 100vh;
+     width: 100%;
+     z-index: 999999;
+     background: url(./images/Preloader_2.gif) center no-repeat #fff;
+}
+
+/*================Loading image ================*/
+
+
 /*================Navigation ================*/
 
 .navbar{
@@ -455,8 +468,8 @@ devices under 1100px*/
 }
 @media(min-width:992px){
     .landing img{
-        height: 1050;
-
+        height: 1100;
+        /* width: 1400px */
     }
 }
 @media(max-width:400px){

@@ -240,8 +240,12 @@ function onClickClose(e){
 
 
 
-
-
+document.onreadystatechange = function () {
+  var state = document.readyState
+  if (state == 'complete') {
+         document.getElementById('loadingIcon').style.display="none";
+  }
+}
 
 
 particlesJS('particles-js',
