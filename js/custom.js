@@ -372,8 +372,9 @@ var typed = new Typed('#typed', {
   stringsElement: '#typed-strings',
   typeSpeed: 40,
   smartBackspace: true,
-  backSpeed: 40,
+  backSpeed: 20,
   loopCount: Infinity,
   loop: true,
-  cursorChar: '|'
+  cursorChar: '|',
+  backDelay:700
 });
